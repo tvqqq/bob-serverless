@@ -1,0 +1,30 @@
+org: tvqqq
+app: bob-serverless
+service: bob-serverless
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: ap-southeast-1
+  memorySize: 1024
+  environment:
+    NOTION_DATABASE_ID: ${param:NOTION_DATABASE_ID}
+    NOTION_TOKEN: ${param:NOTION_TOKEN}
+    TELEGRAM_CHAT_ID: ${param:TELEGRAM_CHAT_ID}
+    TELEGRAM_TOKEN: ${param:TELEGRAM_TOKEN}
+
+functions:
+  webhookPost:
+    handler: webhook.post
+    events:
+      - httpApi:
+          path: /webhook
+          method: post
+
+  hello:
+    handler: handler.hello
+    events:
+      - httpApi:
+          path: /
+          method: get
