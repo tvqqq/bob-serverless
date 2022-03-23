@@ -10,6 +10,19 @@ module.exports.post = async (event) => {
 
   const body = JSON.parse(event.body);
   const message = body.message;
+  console.log('message debugger', message);
+  if (message.entities === undefined) {
+    return {
+      statusCode: 200,
+      body: JSON.stringify(
+        {
+          message: "Done!",
+        },
+        null,
+        2
+      ),
+    };
+  }
 
   const text = message.text;
   const urlEntities = message.entities.filter((e) => e.type === "url");
