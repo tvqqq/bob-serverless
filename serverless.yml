@@ -11,7 +11,6 @@ provider:
   environment:
     NOTION_DATABASE_ID: ${param:NOTION_DATABASE_ID}
     NOTION_TOKEN: ${param:NOTION_TOKEN}
-    TELEGRAM_CHAT_ID: ${param:TELEGRAM_CHAT_ID}
     TELEGRAM_TOKEN: ${param:TELEGRAM_TOKEN}
 
 functions:

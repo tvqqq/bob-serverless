@@ -10,7 +10,7 @@ module.exports.post = async (event) => {
 
   const body = JSON.parse(event.body);
   const message = body.message;
-  console.log('message debugger', message);
+  console.log("message debugger", message);
   if (message.entities === undefined) {
     return {
       statusCode: 200,
@@ -103,7 +103,7 @@ module.exports.post = async (event) => {
       await notifyTelegram(
         data,
         message.message_id,
-        TELEGRAM_CHAT_ID,
+        message.chat.id,
         TELEGRAM_TOKEN
       );
     })
