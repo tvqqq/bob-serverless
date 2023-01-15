@@ -14,7 +14,6 @@
 
 
 ## Local development
-
 ```
 serverless invoke local -f webhookPost --path data/webhook.json
 ```
